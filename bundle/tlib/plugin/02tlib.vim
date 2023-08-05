@@ -29,8 +29,8 @@ set cpo&vim
 " :display: :TRequire NAME [VERSION [FILE]]
 " Make a certain vim file is loaded.
 "
-" Conventions: If FILE isn't defined, plugin/NAME.vim is loaded. The 
-" file must provide a variable loaded_{NAME} that represents the version 
+" Conventions: If FILE isn't defined, plugin/NAME.vim is loaded. The
+" file must provide a variable loaded_{NAME} that represents the version
 " number.
 command! -nargs=+ TRequire let s:require = [<f-args>]
             \ | if !exists('loaded_'. get(s:require, 0))
@@ -85,13 +85,13 @@ command! -nargs=+ TKeyArg exec tlib#arg#Key([<args>])
 
 
 " :display: :TBrowseOutput COMMAND
-" Ever wondered how to efficiently browse the output of a command 
-" without redirecting it to a file? This command takes a command as 
-" argument and presents the output via |tlib#input#List()| so that you 
-" can easily search for a keyword (e.g. the name of a variable or 
+" Ever wondered how to efficiently browse the output of a command
+" without redirecting it to a file? This command takes a command as
+" argument and presents the output via |tlib#input#List()| so that you
+" can easily search for a keyword (e.g. the name of a variable or
 " function) and the like.
 "
-" If you press enter, the selected line will be copied to the command 
+" If you press enter, the selected line will be copied to the command
 " line. Press ESC to cancel browsing.
 "
 " EXAMPLES: >
@@ -105,9 +105,10 @@ command! -nargs=1 -complete=command TBrowseOutput call tlib#cmd#BrowseOutput(<q-
 " window. Press ESC to cancel.
 "
 " EXAMPLES: >
-"   TBrowseScriptnames 
-command! -nargs=0 -complete=command TBrowseScriptnames call
-            \ tlib#cmd#BrowseOutputWithCallback("tlib#cmd#ParseScriptname", "scriptnames")
+"   TBrowseScriptnames
+" command! -nargs=0 -complete=command TBrowseScriptnames call
+"             \ tlib#cmd#BrowseOutputWithCallback("tlib#cmd#ParseScriptname", "scriptnames")
+command! -nargs=0 TBrowseScriptnames call tlib#cmd#TBrowseScriptnames()
 
 " :display: :TTimeCommand CMD
 " Time the execution time of CMD.
